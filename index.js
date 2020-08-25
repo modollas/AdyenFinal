@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
   );
   next();
 });
-app.use(cors());
+// app.use(cors());
 
 // app.use('/getPaymentMethod', require('./getPaymentMethods'));
 // app.use('/initiatePayment', require('./initiatePayment'));
