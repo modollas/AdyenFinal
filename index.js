@@ -128,7 +128,7 @@ app.post('/payment', (req, res) => {
       paymentMethod: req.body.data.paymentMethod,
       reference: '12345',
       merchantAccount: config.merchantAccount,
-      returnUrl: 'http://' + req.get('host') + '/checkout',
+      returnUrl: 'https://' + req.get('host') + '/checkout',
     })
     .then((data) => {
       console.log(data);
@@ -148,7 +148,7 @@ app.post('/payment/details', (req, res) => {
       paymentMethod: req.body.data.paymentMethod,
       reference: '12345',
       merchantAccount: config.merchantAccount,
-      returnUrl: 'http://' + req.get('host') + '/checkout',
+      returnUrl: 'https://' + req.get('host') + '/checkout',
     })
     .then((data) => {
       console.log(data);

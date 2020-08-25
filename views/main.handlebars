@@ -19,7 +19,7 @@
         environment: "test",
         onSubmit: (state, dropin) => {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://" + host + "/payment", true);
+            xhr.open("POST", "https://" + host + "/payment", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
             xhr.send(JSON.stringify({
@@ -35,7 +35,7 @@
                 } else {
                     // Your function to show the final result to the shopper
                     getReq = new XMLHttpRequest();
-                    xhr.open("GET", "http://" + host + "/checkout", true);
+                    xhr.open("GET", "https://" + host + "/checkout", true);
                     xhr.setRequestHeader('Content-Type', 'application/json');
                     xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
                     xhr.send()
@@ -46,7 +46,7 @@
         onAdditionalDetails: (state, dropin) => {
             // Your function calling your server to make a `/payments/details` request
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://" + host + "/payment/details", true);
+            xhr.open("POST", "https://" + host + "/payment/details", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
             xhr.send(JSON.stringify({
