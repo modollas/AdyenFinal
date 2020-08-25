@@ -23,18 +23,6 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-// app.use('/getPaymentMethod', require('./getPaymentMethods'));
-// app.use('/initiatePayment', require('./initiatePayment'));
-// app.use('/handleShopperRedirect', require('./handleShopperRedirect'));
-// app.use('/submitAdditionalDetails', require('./submitAdditionalDetails'));
-
-// Adyen Node.js API library boilerplate (configuration, etc.)
-// const config = new Config();
-// config.apiKey = "AQEyhmfxK4zJbBZDw0m/n3Q5qf3VaY9UCJ1+XWZe9W27jmlZiniYHPZ+YtXG9dYfNdwN0H8QwV1bDb7kfNy1WIxIIkxgBw==-uA2G0DS73SlmB4EHi/YNndhli7KlCMjXHbMmm8stboc=-djvcdM2gNHq9dSvC";
-// const client = new Client({ config });
-// client.setEnvironment("TEST");
-// const checkout = new CheckoutAPI(client);
-
 // Use Handlebars as the view engine
 app.set('view engine', 'handlebars');
 
@@ -47,46 +35,6 @@ app.engine(
 );
 
 app.use(express.static(path.join(__dirname, '/public')));
-
-// console.log(response);
-
-// function callServer(url, data) {
-//   return fetch(url, {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: {
-//       "Content-Type": "application/json"
-//     }
-//   }).then(res => res.json());
-// }
-// function handleServerResponse(res, dropin) {
-//   if (res.action) {
-//     dropin.handleAction(res.action);
-//   } else {
-//     switch (res.resultCode) {
-//       case "Authorised":
-//         window.location.assign = "/success";
-//         break;
-//       case "Pending":
-//         window.location.assign = "/pending";
-//         break;
-//       case "Refused":
-//         window.location.assign = "/failed";
-//         break;
-//       default:
-//         window.location.assign = "/error";
-//         break;
-//     }
-//   }
-// }
-
-// function handleSubmission(state, component, url) {
-//   callServer(url, state.data)
-//     .then(res => handleServerResponse(res, component))
-//     .catch(error => {
-//       throw Error(error);
-//     });
-// }
 
 const config = new Config();
 // Set your X-API-KEY with the API key from the Customer Area.
