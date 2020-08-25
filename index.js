@@ -10,6 +10,14 @@ const app = express();
 
 const PORT = process.env.PORT || 8081;
 
+app.all('*', function (req, res, next) {
+  var origin = req.get('origin');
+  res.header('Access-Control-Allow-Origin', origin);
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 // const paymentsrouter = require(getPaymentMethods)
 
 // Parse JSON bodies
@@ -20,19 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Parse cookie bodies, and allow setting/getting cookies
 // app.use(cookieParser());
-app.use(function (req, res, next) {
-  res.header(
-    'Access-Control-Allow-Origin',
-    'https://intense-waters-87955.herokuapp.com'
-  );
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json'
-  );
-  next();
-});
+
 // app.use(cors());
 
 // app.use('/getPaymentMethod', require('./getPaymentMethods'));
