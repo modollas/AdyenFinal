@@ -10,14 +10,6 @@ const app = express();
 
 const PORT = process.env.PORT || 8081;
 
-app.all('*', function (req, res, next) {
-  var origin = req.get('origin');
-  res.header('Access-Control-Allow-Origin', origin);
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
-
 // const paymentsrouter = require(getPaymentMethods)
 
 // Parse JSON bodies
@@ -29,7 +21,7 @@ app.use(bodyParser.json());
 // Parse cookie bodies, and allow setting/getting cookies
 // app.use(cookieParser());
 
-// app.use(cors());
+app.use(cors());
 
 // app.use('/getPaymentMethod', require('./getPaymentMethods'));
 // app.use('/initiatePayment', require('./initiatePayment'));
